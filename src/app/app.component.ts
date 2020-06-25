@@ -1,29 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder } from  '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'Project CC';
-
-  products = [{
-    name: 'Phone XL',
-    value: 2,
-    isDone: 3
-  },
-  {
-    name: 'Phone Mini',
-    value: 2,
-    isDone: 3
-  },
-  {
-    name: 'Phone Standard',
-    value: 2,
-    isDone: 3
+export class AppComponent {
+  contactForm: FormGroup;
+  formValue: any;
+  showValue: boolean;
+  constructor(private formBuilder: FormBuilder) {
+    this.createContactForm();
   }
-  ];
 
-  ngOnInit() {
+  createContactForm(){
+    this.contactForm = this.formBuilder.group({
+      fullName: [''],  
+      email: [''],
+      message: ['']
+    });
+  }
+
+  onSubmit() {
+    this.formValue = this.contactForm.value;
+    this.showValue = true;
   }
 }

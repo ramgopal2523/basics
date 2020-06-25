@@ -1,19 +1,27 @@
-<h2>Products</h2>
+<h1> Form Example </h1>
 
-<div *ngFor="let product of products">
-
-  <h3>
-    <a [title]="product.name + ' details'">
-      {{ product.name }}
-    </a>
-  </h3>
-
-  <p *ngIf="product.id">
-    Description: {{ product.id }}
-  </p>
-
-  <button (click)="share()">
-    Share To
-  </button>
-
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <input type = "text" name = "fullName" placeholder = "Your full name" formControlName="fullName" >
+  <br/>
+  
+  <input type = "email" name = "email" placeholder = "Your email" formControlName="email" >
+  <br/>
+  
+  <textarea name = "message" placeholder = "Your message" formControlName="message" ></textarea>
+  <br/>
+  <input type = "submit" value = "Send">
+</form>
+<br>
+<div *ngIf="showValue">
+<div *ngIf="formValue.fullName">
+  <b>Name</b> : {{ formValue.fullName }}
+</div>
+<br>
+<div *ngIf="formValue.email">
+  <b>Email</b> : {{ formValue.email }}
+</div>
+<br>
+<div *ngIf="formValue.message">
+  <b>Message</b> : {{ formValue.message }}
+</div>
 </div>
