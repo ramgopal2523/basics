@@ -1,4 +1,4 @@
-<h1> Form Example </h1>
+<h1> first </h1>
 
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
   <input type = "text" name = "fullName" placeholder = "Your full name" formControlName="fullName" >
@@ -13,15 +13,8 @@
 </form>
 <br>
 <div *ngIf="showValue">
-<div *ngIf="formValue.fullName">
-  <b>Name</b> : {{ formValue.fullName }}
-</div>
-<br>
-<div *ngIf="formValue.email">
-  <b>Email</b> : {{ formValue.email }}
-</div>
-<br>
-<div *ngIf="formValue.message">
-  <b>Message</b> : {{ formValue.message }}
-</div>
+<app-forms [displayValues]="formValue">
+
+</app-forms>
+
 </div>

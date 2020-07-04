@@ -6,6 +6,9 @@ import { FormGroup, FormBuilder } from  '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error("Method not implemented.");
+  }
   contactForm: FormGroup;
   formValue: any;
   showValue: boolean;
